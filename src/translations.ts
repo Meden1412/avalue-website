@@ -187,28 +187,81 @@ export const translations = {
       title: "Valuation Services",
       description: "We provide comprehensive valuation solutions for all financial and management needs.",
       items: [
-        { name: "Townhouse / Residential Land", image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800" },
-        { name: "Apartment / Condominium", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" },
-        { name: "Intellectual Property", image: "https://www.antlawyers.com/wp-content/uploads/2018/10/Luat-su-so-huu-tri-tue-18.jpg" },
-        { name: "Commercial Real Estate", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
-        { name: "Industrial Park", image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800" },
-        { name: "Resort / Hotel", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" },
-        { name: "Machinery and Equipment", image: "https://bizweb.dktcdn.net/thumb/grande/100/473/623/articles/1904-may-moc-cong-nghiep.jpeg?v=1673057162597" },
-        { name: "Transportation Vehicles", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaXrvx_waIsdArzuLOPTpR-bSMJqcO_oohYZqJbu-7RZg8ett1Yff97L7ZtUdtPFwUnc1ZcCpl8q77iXhZApZU6BvLpCfdZpuqmsRNzds8C19F0Mj_JpnNdPneE-GAndSIu2N0QSKf5lM/s640/dich-vu-van-chuyen-hang-hoa-bac-nam-dip-tet.jpg" },
-        { name: "Business / Enterprise", image: "https://i.ex-cdn.com/taichinhdoanhnghiep.net.vn/files/thanhphuong/2021/06/04/tham-dinh-gia-doanh-nghiep-1053.jpg" },
-      ]
+  {
+    title: "Real Estate Valuation",
+    desc: "Valuation of townhouses, apartments, land plots, and complex real estate projects.",
+  },
+  {
+    title: "Machinery and Equipment Valuation",
+    desc: "Valuation of production lines, transportation vehicles, and industrial equipment.",
+  },
+  {
+    title: "Collateral Asset Valuation",
+    desc: "Reliable valuation solutions for lending, secured assets, and banking risk management.",
+  },
+  {
+    title: "Business Valuation",
+    desc: "Enterprise value assessment for M&A, equitization, investment, and restructuring purposes.",
+  },
+  {
+    title: "Asset Value Advisory",
+    desc: "Strategic valuation advisory and asset portfolio management support.",
+  },
+  {
+    title: "Review and Quality Control",
+    desc: "Ensuring the accuracy, consistency, and legal compliance of valuation certificates.",
+  },
+  {
+    title: "Market Analysis",
+    desc: "Providing market data reports and price movement analysis by area and timing.",
+  },
+  {
+    title: "Valuation Technology Solutions",
+    desc: "Digital platforms for smarter valuation workflows, data management, and reporting.",
+  },
+]
     },
     assets: {
       title: "Asset Types",
       subtitle: "Capacity to process diverse specialized asset groups across the country.",
       items: [
-        { name: "Townhouses / Land", image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800" },
-        { name: "Apartments", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" },
-        { name: "Project Land", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800" },
-        { name: "Commercial Real Estate", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
-        { name: "Industrial Parks", image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800" },
-        { name: "Resorts / Hotels", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" },
-      ]
+  {
+    name: "Townhouse / Residential Land",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    name: "Apartment / Condominium",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    name: "Intellectual Property",
+    image: "https://www.antlawyers.com/wp-content/uploads/2018/10/Luat-su-so-huu-tri-tue-18.jpg",
+  },
+  {
+    name: "Commercial Real Estate",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    name: "Industrial Park",
+    image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    name: "Resort / Hotel",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    name: "Machinery and Equipment",
+    image: "https://bizweb.dktcdn.net/thumb/grande/100/473/623/articles/1904-may-moc-cong-nghiep.jpeg?v=1673057162597",
+  },
+  {
+    name: "Transportation Vehicles",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaXrvx_waIsdArzuLOPTpR-bSMJqcO_oohYZqJbu-7RZg8ett1Yff97L7ZtUdtPFwUnc1ZcCpl8q77iXhZApZU6BvLpCfdZpuqmsRNzds8C19F0Mj_JpnNdPneE-GAndSIu2N0QSKf5lM/s640/dich-vu-van-chuyen-hang-hoa-bac-nam-dip-tet.jpg",
+  },
+  {
+    name: "Business / Enterprise",
+    image: "https://i.ex-cdn.com/taichinhdoanhnghiep.net.vn/files/thanhphuong/2021/06/04/tham-dinh-gia-doanh-nghiep-1053.jpg",
+  },
+]
     },
     process: {
       title: "Professional Process",
