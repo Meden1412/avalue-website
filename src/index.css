@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --color-primary: #B5121B;
+  --color-primary-dark: #8E0E15;
+  --color-dark: #111827;
+  --color-charcoal: #2E2E2E;
+  --color-light-gray: #F5F6F8;
+  --color-border-gray: #D9DEE5;
+  --color-accent-silver: #A7A9AC;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-dark bg-light-gray antialiased;
+  }
+}
+
+.hero-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow::after {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(181, 18, 27, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.terminal-box {
+  @apply bg-dark rounded-lg p-4 font-mono text-[10px] text-green-400 overflow-hidden border border-white/5;
+}
+
+.glass-card {
+  @apply bg-white border border-border-gray rounded-xl shadow-sm hover:shadow-md transition-all;
+}
+
+.btn-primary {
+  @apply bg-primary hover:opacity-90 text-white px-6 py-2.5 rounded font-bold text-sm uppercase tracking-wider transition-all;
+}
+
+.btn-outline {
+  @apply border border-white/20 hover:bg-white/10 text-white px-6 py-2.5 rounded font-bold text-sm uppercase tracking-wider transition-all;
+}
+
+.partners-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 6px 0;
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  animation: partnersScroll 22s linear infinite;
+}
+
+.partner-logo-item {
+  flex: 0 0 auto;
+  min-width: 140px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.partner-logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: translateY(-1px);
+}
+
+.partner-logo-img {
+  max-height: 34px;
+  max-width: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+@keyframes partnersScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
