@@ -10,7 +10,7 @@ export const translations = {
       tech: "Công nghệ",
       insights: "Tin tức",
       contact: "Liên hệ",
-      request: "Yêu cầu báo giá",
+      request: "Yêu cầu tư vấn",
     },
     hero: {
       headline: "Định giá thông minh - Minh bạch dữ liệu",
@@ -148,7 +148,7 @@ export const translations = {
       tech: "Technology",
       insights: "Insights",
       contact: "Contact",
-      request: "Request a Valuation",
+      request: "Request a Consultation",
     },
     hero: {
       headline: "Accurate, Transparent, and Data-Driven Valuation Solutions",
@@ -187,14 +187,15 @@ export const translations = {
       title: "Valuation Services",
       description: "We provide comprehensive valuation solutions for all financial and management needs.",
       items: [
-        { title: "Real Estate Valuation", desc: "Determining the value of townhouses, apartments, land, and complex projects." },
-        { title: "Machinery & Equipment Valuation", desc: "Valuating production lines, transport vehicles, and industrial equipment." },
-        { title: "Collateral Asset Valuation", desc: "Reliable solutions for bank loans and risk management." },
-        { title: "Business Valuation", desc: "Evaluating business value for M&A, equitization, and investment." },
-        { title: "Asset Value Consulting", desc: "Supporting valuation strategies and asset portfolio management." },
-        { title: "Quality Control & Review", desc: "Ensuring accuracy and legal compliance of appraisal certificates." },
-        { title: "Market Analysis", desc: "Providing data reports on price fluctuations by region and time." },
-        { title: "Technology Solutions", desc: "Digital platform for standardized processes and smart valuation data." },
+        { name: "Townhouse / Residential Land", image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800" },
+        { name: "Apartment / Condominium", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" },
+        { name: "Intellectual Property", image: "https://www.antlawyers.com/wp-content/uploads/2018/10/Luat-su-so-huu-tri-tue-18.jpg" },
+        { name: "Commercial Real Estate", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
+        { name: "Industrial Park", image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800" },
+        { name: "Resort / Hotel", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800" },
+        { name: "Machinery and Equipment", image: "https://bizweb.dktcdn.net/thumb/grande/100/473/623/articles/1904-may-moc-cong-nghiep.jpeg?v=1673057162597" },
+        { name: "Transportation Vehicles", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaXrvx_waIsdArzuLOPTpR-bSMJqcO_oohYZqJbu-7RZg8ett1Yff97L7ZtUdtPFwUnc1ZcCpl8q77iXhZApZU6BvLpCfdZpuqmsRNzds8C19F0Mj_JpnNdPneE-GAndSIu2N0QSKf5lM/s640/dich-vu-van-chuyen-hang-hoa-bac-nam-dip-tet.jpg" },
+        { name: "Business / Enterprise", image: "https://i.ex-cdn.com/taichinhdoanhnghiep.net.vn/files/thanhphuong/2021/06/04/tham-dinh-gia-doanh-nghiep-1053.jpg" },
       ]
     },
     assets: {
@@ -243,7 +244,7 @@ export const translations = {
       title: "Insights & News",
       items: [
         { category: "Market", title: "2024 Real Estate Trends and Valuation Impact", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" },
-        { category: "Technology", title: "The Role of Big Data in Asset Valuation", image: "https://images.unsplash.com/photo-1551288049-bbbda5366a71?auto=format&fit=crop&q=80&w=800" },
+        { category: "Technology", title: "The Role of Big Data in Asset Valuation", image: "https://cdn-merchant.vinid.net/images/gallery/omre_trang_tin_tuc/image_upload_1725873295_mceclip0.png" },
         { category: "Legal", title: "Updating New Land Law Regulations", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800" },
       ]
     },
