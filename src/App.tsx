@@ -617,162 +617,172 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-lightGray">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-20">
-            <div>
-              <SectionHeading
-  title={t.contact.title}
-  subtitle={lang === "vi" ? "Bắt đầu liên hệ Avalue" : "Start your project with Avalue"}
-/>
-              <div className="space-y-10 mt-12">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">Hotline</h5>
-                    <p className="text-2xl font-bold text-dark">{t.contact.info.hotline}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">Email</h5>
-                    <p className="text-xl font-bold text-dark">{t.contact.info.email}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
-  {lang === "vi" ? "Địa chỉ" : "Address"}
-</h5>
-                    <p className="font-medium text-dark max-w-xs">{t.contact.info.address}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
-  {lang === "vi" ? "Thời gian làm việc" : "Working Hours"}
-</h5>
-                    <p className="font-medium text-dark">{t.contact.info.hours}</p>
-                  </div>
-                </div>
-              </div>
+      {/* Contact Section */}
+<section id="contact" className="py-24 bg-lightGray">
+  <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <div className="grid lg:grid-cols-2 gap-20">
+      <div>
+        <SectionHeading
+          title={t.contact.title}
+          subtitle={lang === "vi" ? "Bắt đầu liên hệ Avalue" : "Start your project with Avalue"}
+        />
+
+        <div className="space-y-10 mt-12">
+          <div className="flex items-start gap-6">
+            <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
+              <Phone size={24} />
             </div>
+            <div>
+              <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+                Hotline
+              </h5>
+              <p className="text-2xl font-bold text-dark">{t.contact.info.hotline}</p>
+            </div>
+          </div>
 
-            <form
-  onSubmit={handleSubmitContact}
-  className="bg-white p-10 md:p-12 rounded-3xl shadow-xl border border-border"
->
-  <div className="grid sm:grid-cols-2 gap-6">
-    <div className="space-y-2">
-      <label className="text-xs font-bold uppercase text-silver tracking-wider">
-        {t.contact.form.name}
-      </label>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleFormChange}
-        className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
-      />
-    </div>
+          <div className="flex items-start gap-6">
+            <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
+              <Mail size={24} />
+            </div>
+            <div>
+              <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+                Email
+              </h5>
+              <p className="text-xl font-bold text-dark">{t.contact.info.email}</p>
+            </div>
+          </div>
 
-    <div className="space-y-2">
-      <label className="text-xs font-bold uppercase text-silver tracking-wider">
-        {t.contact.form.phone}
-      </label>
-      <input
-        type="tel"
-        name="phone"
-        value={formData.phone}
-        onChange={handleFormChange}
-        className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
-      />
-    </div>
+          <div className="flex items-start gap-6">
+            <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
+              <MapPin size={24} />
+            </div>
+            <div>
+              <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+                {lang === "vi" ? "Địa chỉ" : "Address"}
+              </h5>
+              <p className="font-medium text-dark max-w-xs">{t.contact.info.address}</p>
+            </div>
+          </div>
 
-    <div className="sm:col-span-2 space-y-2">
-      <label className="text-xs font-bold uppercase text-silver tracking-wider">
-        {t.contact.form.email}
-      </label>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleFormChange}
-        className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
-      />
-    </div>
-
-    <div className="sm:col-span-2 space-y-2">
-      <label className="text-xs font-bold uppercase text-silver tracking-wider">
-        {t.contact.form.assetType}
-      </label>
-      <select
-        name="assetType"
-        value={formData.assetType}
-        onChange={handleFormChange}
-        className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
-      >
-        <option value="">-</option>
-        <option value={lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}>
-  {lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}
-</option>
-<option value={lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}>
-  {lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}
-</option>
-<option value={lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}>
-  {lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}
-</option>
-<option value={lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}>
-  {lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}
-      </select>
-    </div>
-
-    <div className="sm:col-span-2 space-y-2">
-      <label className="text-xs font-bold uppercase text-silver tracking-wider">
-        {t.contact.form.message}
-      </label>
-      <textarea
-        rows={4}
-        name="message"
-        value={formData.message}
-        onChange={handleFormChange}
-        className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
-      />
-    </div>
-
-    <button
-      type="submit"
-      disabled={isSubmitting}
-      className="sm:col-span-2 bg-primary hover:bg-primary-dark text-white py-5 rounded-lg font-bold text-lg transition-all shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed"
-    >
-      {isSubmitting
-  ? lang === "vi"
-    ? "Đang gửi..."
-    : "Sending..."
-  : t.contact.form.submit}
-    </button>
-
-    {submitMessage && (
-      <p className="sm:col-span-2 mt-2 text-sm font-semibold text-primary">
-        {submitMessage}
-      </p>
-    )}
-  </div>
-</form>
+          <div className="flex items-start gap-6">
+            <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
+              <Clock size={24} />
+            </div>
+            <div>
+              <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+                {lang === "vi" ? "Thời gian làm việc" : "Working Hours"}
+              </h5>
+              <p className="font-medium text-dark">{t.contact.info.hours}</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <form
+        onSubmit={handleSubmitContact}
+        className="bg-white p-10 md:p-12 rounded-3xl shadow-xl border border-border"
+      >
+        <div className="grid sm:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-xs font-bold uppercase text-silver tracking-wider">
+              {t.contact.form.name}
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleFormChange}
+              className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-xs font-bold uppercase text-silver tracking-wider">
+              {t.contact.form.phone}
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleFormChange}
+              className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
+            />
+          </div>
+
+          <div className="sm:col-span-2 space-y-2">
+            <label className="text-xs font-bold uppercase text-silver tracking-wider">
+              {t.contact.form.email}
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleFormChange}
+              className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
+            />
+          </div>
+
+          <div className="sm:col-span-2 space-y-2">
+            <label className="text-xs font-bold uppercase text-silver tracking-wider">
+              {t.contact.form.assetType}
+            </label>
+            <select
+              name="assetType"
+              value={formData.assetType}
+              onChange={handleFormChange}
+              className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
+            >
+              <option value="">-</option>
+              <option value={lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}>
+                {lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}
+              </option>
+              <option value={lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}>
+                {lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}
+              </option>
+              <option value={lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}>
+                {lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}
+              </option>
+              <option value={lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}>
+                {lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}
+              </option>
+            </select>
+          </div>
+
+          <div className="sm:col-span-2 space-y-2">
+            <label className="text-xs font-bold uppercase text-silver tracking-wider">
+              {t.contact.form.message}
+            </label>
+            <textarea
+              rows={4}
+              name="message"
+              value={formData.message}
+              onChange={handleFormChange}
+              className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="sm:col-span-2 bg-primary hover:bg-primary-dark text-white py-5 rounded-lg font-bold text-lg transition-all shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {isSubmitting
+              ? lang === "vi"
+                ? "Đang gửi..."
+                : "Sending..."
+              : t.contact.form.submit}
+          </button>
+
+          {submitMessage && (
+            <p className="sm:col-span-2 mt-2 text-sm font-semibold text-primary">
+              {submitMessage}
+            </p>
+          )}
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="h-12 bg-white border-t border-border-gray flex items-center justify-between px-10 text-[11px] text-silver font-bold uppercase tracking-widest">
