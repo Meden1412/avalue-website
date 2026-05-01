@@ -314,9 +314,9 @@ export const translations = {
         submit: "Send Request",
       },
       info: {
-        hotline: "1900 xxxx",
-        email: "info@avalue.vn",
-        address: "Floor X, Building Y, District Z, Ho Chi Minh City",
+        hotline: "0934 256 969",
+        email: "dungdq@avalue.vn",
+        address: "Floor 7, 99 Nguyen Phong Sac, Cau Giay, Ha Noi City",
         hours: "Mon - Fri: 08:30 - 17:30"
       }
     },
@@ -324,7 +324,7 @@ export const translations = {
       about: "Avalue is a trusted partner providing smart valuation solutions for leading banks and financial institutions.",
       links: "Quick Links",
       services: "Main Services",
-      copyright: "© 2024 Avalue. All rights reserved."
+      copyright: "© 2026 Avalue. All rights reserved."
     }
   }
 };

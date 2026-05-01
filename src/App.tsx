@@ -159,9 +159,13 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
   if (!formData.name || !formData.phone) {
-    setSubmitMessage("Vui lòng nhập họ tên và số điện thoại.");
-    return;
-  }
+  setSubmitMessage(
+    lang === "vi"
+      ? "Vui lòng nhập họ tên và số điện thoại."
+      : "Please enter your full name and phone number."
+  );
+  return;
+}
 
   setIsSubmitting(true);
   setSubmitMessage("");
@@ -184,19 +188,31 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
     const result = await response.json();
 
     if (result.success) {
-      setSubmitMessage("Yêu cầu tư vấn đã được gửi thành công. Avalue sẽ liên hệ lại sớm.");
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        assetType: "",
-        message: "",
-      });
-    } else {
-      setSubmitMessage("Chưa gửi được yêu cầu. Vui lòng thử lại.");
-    }
+  setSubmitMessage(
+    lang === "vi"
+      ? "Yêu cầu tư vấn đã được gửi thành công. Avalue sẽ liên hệ lại sớm."
+      : "Your consultation request has been sent successfully. Avalue will contact you soon."
+  );
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    assetType: "",
+    message: "",
+  });
+} else {
+  setSubmitMessage(
+    lang === "vi"
+      ? "Chưa gửi được yêu cầu. Vui lòng thử lại."
+      : "Your request could not be sent. Please try again."
+  );
+}
   } catch (error) {
-    setSubmitMessage("Có lỗi khi gửi yêu cầu. Vui lòng thử lại sau.");
+    setSubmitMessage(
+  lang === "vi"
+    ? "Có lỗi khi gửi yêu cầu. Vui lòng thử lại sau."
+    : "An error occurred while sending your request. Please try again later."
+);
   } finally {
     setIsSubmitting(false);
   }
@@ -419,7 +435,11 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl">
               <h4 className="text-primary font-bold uppercase tracking-widest text-xs mb-3">{t.process.title}</h4>
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight">Xây dựng uy tín qua quy trình chuẩn mực</h2>
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+                {lang === "vi"
+                  ? "Xây dựng uy tín qua quy trình chuẩn mực"
+                  : "Building trust through a standardized process"}
+              </h2>
             </div>
             <div className="hidden md:block">
               <img
@@ -531,7 +551,15 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
             <div className="relative z-10 grid lg:grid-cols-2 gap-16">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                  Sứ mệnh tạo dựng <span className="text-primary">giá trị thật</span> cho thị trường
+                  {lang === "vi" ? (
+                    <>
+                      Sứ mệnh tạo dựng <span className="text-primary">giá trị thật</span> cho thị trường
+                    </>
+                  ) : (
+                    <>
+                      Building <span className="text-primary">true value</span> for the market
+                    </>
+                  )}
                 </h2>
                 <p className="text-silver text-lg mb-12">
                   {t.hero.subheadline}
@@ -561,7 +589,7 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
           <div className="flex items-end justify-between mb-16">
             <SectionHeading title={t.insights.title} subtitle="Valuation Insights" />
             <a href="#" className="hidden md:flex items-center gap-2 text-primary font-bold mb-16">
-              Xem toàn bộ <ArrowRight size={18} />
+              {lang === "vi" ? "Xem toàn bộ" : "View all"} <ArrowRight size={18} />
             </a>
           </div>
           
@@ -593,7 +621,10 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-20">
             <div>
-              <SectionHeading title={t.contact.title} subtitle="Bắt đầu liên hệ Avalue" />
+              <SectionHeading
+  title={t.contact.title}
+  subtitle={lang === "vi" ? "Bắt đầu liên hệ Avalue" : "Start your project with Avalue"}
+/>
               <div className="space-y-10 mt-12">
                 <div className="flex items-start gap-6">
                   <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0 text-primary">
@@ -618,7 +649,9 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">Địa chỉ</h5>
+                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+  {lang === "vi" ? "Địa chỉ" : "Address"}
+</h5>
                     <p className="font-medium text-dark max-w-xs">{t.contact.info.address}</p>
                   </div>
                 </div>
@@ -627,7 +660,9 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
                     <Clock size={24} />
                   </div>
                   <div>
-                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">Thời gian làm việc</h5>
+                    <h5 className="font-bold text-silver uppercase text-xs tracking-widest mb-1">
+  {lang === "vi" ? "Thời gian làm việc" : "Working Hours"}
+</h5>
                     <p className="font-medium text-dark">{t.contact.info.hours}</p>
                   </div>
                 </div>
@@ -689,10 +724,17 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
         className="w-full bg-lightGray border border-border rounded-lg p-4 focus:outline-none focus:border-primary transition-all"
       >
         <option value="">-</option>
-        <option value="BĐS Dân dụng">BĐS Dân dụng</option>
-        <option value="BĐS Công nghiệp">BĐS Công nghiệp</option>
-        <option value="Máy móc thiết bị">Máy móc thiết bị</option>
-        <option value="Định giá doanh nghiệp">Định giá doanh nghiệp</option>
+        <option value={lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}>
+  {lang === "vi" ? "BĐS Dân dụng" : "Residential Real Estate"}
+</option>
+<option value={lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}>
+  {lang === "vi" ? "BĐS Công nghiệp" : "Industrial Real Estate"}
+</option>
+<option value={lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}>
+  {lang === "vi" ? "Máy móc thiết bị" : "Machinery and Equipment"}
+</option>
+<option value={lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}>
+  {lang === "vi" ? "Định giá doanh nghiệp" : "Business Valuation"}
       </select>
     </div>
 
@@ -714,7 +756,11 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
       disabled={isSubmitting}
       className="sm:col-span-2 bg-primary hover:bg-primary-dark text-white py-5 rounded-lg font-bold text-lg transition-all shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed"
     >
-      {isSubmitting ? "Đang gửi..." : t.contact.form.submit}
+      {isSubmitting
+  ? lang === "vi"
+    ? "Đang gửi..."
+    : "Sending..."
+  : t.contact.form.submit}
     </button>
 
     {submitMessage && (
