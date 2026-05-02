@@ -203,6 +203,7 @@ export default function App() {
 
 const [isSubmitting, setIsSubmitting] = useState(false);
 const [submitMessage, setSubmitMessage] = useState("");
+const [legalModal, setLegalModal] = useState(null);
 
 const handleFormChange = (
   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -881,14 +882,244 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
   </div>
 </section>
 
+{/* Legal Modal */}
+<AnimatePresence>
+  {legalModal && (
+    <motion.div
+      className="fixed inset-0 z-[120] bg-dark/80 backdrop-blur-sm overflow-y-auto"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="min-h-screen px-4 py-8 sm:py-12 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 24, scale: 0.98 }}
+          className="bg-white rounded-3xl max-w-5xl w-full shadow-2xl overflow-hidden"
+        >
+          <div className="sticky top-0 bg-white border-b border-border px-6 sm:px-10 py-5 flex items-center justify-between gap-4 z-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-dark">
+                {legalModal === "privacy"
+                  ? "Chính sách bảo mật thông tin"
+                  : "Điều khoản dịch vụ"}
+              </h2>
+              <p className="text-sm text-silver mt-1">
+                Cập nhật lần cuối: 02/05/2026
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setLegalModal(null)}
+              className="w-11 h-11 rounded-full bg-lightGray text-dark flex items-center justify-center hover:bg-primary hover:text-white transition-colors flex-shrink-0"
+              aria-label="Close legal modal"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className="p-6 sm:p-10 lg:p-12 text-charcoal leading-relaxed">
+            {legalModal === "privacy" ? (
+              <div className="space-y-8">
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">1. Mục đích của chính sách</h3>
+                  <p>
+                    Chính sách bảo mật này mô tả cách Avalue thu thập, sử dụng, lưu trữ, bảo vệ và xử lý
+                    thông tin cá nhân của khách hàng, đối tác và người dùng khi truy cập website, gửi yêu cầu
+                    tư vấn, yêu cầu thẩm định giá hoặc tương tác với các kênh trực tuyến của Avalue.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">2. Thông tin chúng tôi có thể thu thập</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Họ và tên, số điện thoại, email, tổ chức/doanh nghiệp.</li>
+                    <li>Thông tin về loại tài sản cần thẩm định, vị trí tài sản và nội dung yêu cầu tư vấn.</li>
+                    <li>Thông tin kỹ thuật cơ bản như địa chỉ IP, loại thiết bị, trình duyệt, thời gian truy cập và hành vi sử dụng website.</li>
+                    <li>Các thông tin khác do người dùng chủ động cung cấp cho Avalue trong quá trình liên hệ hoặc sử dụng dịch vụ.</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">3. Mục đích sử dụng thông tin</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Liên hệ, phản hồi và tư vấn theo yêu cầu của khách hàng.</li>
+                    <li>Tiếp nhận, phân loại và xử lý nhu cầu thẩm định giá hoặc tư vấn tài sản.</li>
+                    <li>Cải thiện chất lượng dịch vụ, trải nghiệm người dùng và hiệu quả vận hành website.</li>
+                    <li>Thực hiện các nghĩa vụ pháp lý, tuân thủ quy định về bảo vệ dữ liệu cá nhân, an toàn thông tin và quản trị rủi ro.</li>
+                    <li>Gửi thông tin dịch vụ, tài liệu chuyên môn hoặc thông báo liên quan nếu người dùng đồng ý hoặc pháp luật cho phép.</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">4. Chia sẻ thông tin</h3>
+                  <p>
+                    Avalue không bán, trao đổi hoặc cho thuê thông tin cá nhân của người dùng cho bên thứ ba.
+                    Thông tin chỉ có thể được chia sẻ cho nhân sự, chi nhánh, cộng tác viên, nhà cung cấp hạ tầng kỹ thuật
+                    hoặc cơ quan có thẩm quyền trong trường hợp cần thiết để xử lý yêu cầu dịch vụ, vận hành hệ thống,
+                    tuân thủ pháp luật hoặc bảo vệ quyền và lợi ích hợp pháp của Avalue.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">5. Lưu trữ và bảo mật thông tin</h3>
+                  <p>
+                    Avalue áp dụng các biện pháp quản lý, kỹ thuật và tổ chức phù hợp để bảo vệ thông tin khỏi
+                    truy cập trái phép, mất mát, lạm dụng, thay đổi hoặc tiết lộ ngoài ý muốn. Thời gian lưu trữ
+                    thông tin phụ thuộc vào mục đích xử lý, yêu cầu nghiệp vụ, nghĩa vụ pháp lý và chính sách lưu trữ
+                    nội bộ của Avalue.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">6. Quyền của người dùng</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Yêu cầu cung cấp thông tin về việc xử lý dữ liệu cá nhân của mình.</li>
+                    <li>Yêu cầu chỉnh sửa, cập nhật hoặc bổ sung thông tin chưa chính xác.</li>
+                    <li>Rút lại sự đồng ý xử lý dữ liệu cá nhân trong trường hợp pháp luật cho phép.</li>
+                    <li>Yêu cầu xóa, hạn chế xử lý hoặc phản đối việc xử lý dữ liệu cá nhân.</li>
+                    <li>Gửi khiếu nại hoặc phản ánh liên quan đến việc bảo vệ dữ liệu cá nhân.</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">7. Cookie và công nghệ theo dõi</h3>
+                  <p>
+                    Website có thể sử dụng cookie hoặc công nghệ tương tự để ghi nhớ tùy chọn người dùng,
+                    phân tích lưu lượng truy cập, cải thiện hiệu suất website và nâng cao trải nghiệm sử dụng.
+                    Người dùng có thể điều chỉnh cài đặt trình duyệt để từ chối cookie.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">8. Liên hệ về bảo mật thông tin</h3>
+                  <p>
+                    Nếu có câu hỏi, yêu cầu hoặc khiếu nại liên quan đến chính sách bảo mật, người dùng có thể
+                    liên hệ Avalue qua email: <strong>dungdq@avalue.vn</strong> hoặc hotline:
+                    <strong> 0934 256 969</strong>.
+                  </p>
+                </section>
+              </div>
+            ) : (
+              <div className="space-y-8">
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">1. Phạm vi áp dụng</h3>
+                  <p>
+                    Điều khoản dịch vụ này áp dụng cho việc người dùng truy cập website Avalue, gửi yêu cầu tư vấn,
+                    yêu cầu thẩm định giá, đọc nội dung chuyên môn hoặc sử dụng các tiện ích trực tuyến được cung cấp
+                    trên website.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">2. Chấp thuận điều khoản</h3>
+                  <p>
+                    Khi truy cập hoặc sử dụng website, người dùng được hiểu là đã đọc, hiểu và đồng ý tuân thủ các
+                    điều khoản này. Nếu không đồng ý, người dùng nên ngừng truy cập hoặc không tiếp tục sử dụng các
+                    chức năng trên website.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">3. Nội dung trên website</h3>
+                  <p>
+                    Các thông tin, bài viết, tài liệu hoặc nhận định trên website được cung cấp nhằm mục đích tham khảo,
+                    giới thiệu dịch vụ và chia sẻ kiến thức chuyên môn. Các nội dung này không được xem là chứng thư
+                    thẩm định giá, báo cáo tư vấn chính thức, ý kiến pháp lý hoặc cam kết kết quả trong từng hồ sơ cụ thể.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">4. Yêu cầu tư vấn và thẩm định giá</h3>
+                  <p>
+                    Khi gửi thông tin qua biểu mẫu liên hệ, người dùng cam kết cung cấp thông tin trung thực, chính xác
+                    và có quyền cung cấp các thông tin đó. Việc gửi biểu mẫu không tự động tạo lập hợp đồng dịch vụ,
+                    trừ khi hai bên có thỏa thuận hoặc văn bản xác nhận riêng.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">5. Trách nhiệm của người dùng</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Không sử dụng website cho mục đích trái pháp luật, gian lận hoặc xâm phạm quyền lợi của bên thứ ba.</li>
+                    <li>Không gửi thông tin sai lệch, giả mạo, gây hiểu nhầm hoặc chứa mã độc.</li>
+                    <li>Không can thiệp, tấn công, làm gián đoạn hoặc cố gắng truy cập trái phép vào hệ thống website.</li>
+                    <li>Không sao chép, khai thác hoặc sử dụng nội dung website cho mục đích thương mại khi chưa được Avalue chấp thuận.</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">6. Quyền sở hữu trí tuệ</h3>
+                  <p>
+                    Toàn bộ giao diện, nội dung, hình ảnh, biểu tượng, nhãn hiệu, dữ liệu, bài viết và tài liệu trên
+                    website thuộc quyền sở hữu hoặc quyền sử dụng hợp pháp của Avalue, trừ khi có ghi chú khác. Người dùng
+                    không được sao chép, chỉnh sửa, phân phối, tái xuất bản hoặc khai thác thương mại các nội dung này nếu
+                    chưa có sự đồng ý bằng văn bản của Avalue.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">7. Giới hạn trách nhiệm</h3>
+                  <p>
+                    Avalue nỗ lực bảo đảm thông tin trên website chính xác và cập nhật, tuy nhiên không cam kết rằng mọi
+                    nội dung luôn đầy đủ, không có sai sót hoặc phù hợp với mọi mục đích sử dụng. Avalue không chịu trách
+                    nhiệm đối với thiệt hại phát sinh từ việc người dùng tự ý sử dụng thông tin trên website mà không có
+                    tư vấn, xác nhận hoặc thỏa thuận dịch vụ chính thức.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">8. Luật áp dụng và giải quyết tranh chấp</h3>
+                  <p>
+                    Các điều khoản này được điều chỉnh bởi pháp luật Việt Nam. Mọi tranh chấp phát sinh liên quan đến việc
+                    truy cập hoặc sử dụng website sẽ được ưu tiên giải quyết thông qua thương lượng thiện chí. Trường hợp
+                    không thể giải quyết bằng thương lượng, tranh chấp sẽ được xử lý theo quy định pháp luật có thẩm quyền
+                    tại Việt Nam.
+                  </p>
+                </section>
+
+                <section>
+                  <h3 className="text-xl font-bold text-dark mb-3">9. Liên hệ</h3>
+                  <p>
+                    Mọi câu hỏi liên quan đến điều khoản dịch vụ có thể gửi về email:
+                    <strong> dungdq@avalue.vn</strong> hoặc hotline: <strong>0934 256 969</strong>.
+                  </p>
+                </section>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
       {/* Footer */}
-      <footer className="h-12 bg-white border-t border-border-gray flex items-center justify-between px-10 text-[11px] text-silver font-bold uppercase tracking-widest">
-        <div>&copy; 2024 Avalue Valuation Intelligence. All Rights Reserved.</div>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-primary">Privacy Policy</a>
-          <a href="#" className="hover:text-primary">Terms of Service</a>
-        </div>
-      </footer>
+<footer className="bg-white border-t border-border-gray px-4 sm:px-6 lg:px-10 py-4 text-[11px] text-silver font-bold uppercase tracking-widest">
+  <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>&copy; 2026 Avalue Valuation Intelligence. All Rights Reserved. DESIGN BY KESO</div>
+
+    <div className="flex gap-6">
+      <button
+        type="button"
+        onClick={() => setLegalModal("privacy")}
+        className="hover:text-primary transition-colors"
+      >
+        Privacy Policy
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setLegalModal("terms")}
+        className="hover:text-primary transition-colors"
+      >
+        Terms of Service
+      </button>
+    </div>
+  </div>
+</footer>
 
       {/* Floating CTA for Mobile */}
 <a
