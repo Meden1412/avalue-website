@@ -358,10 +358,50 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
         ))}
       </div>
 
-      <div className="mt-6 pt-6 border-t border-border-gray">
-        <h4 className="font-bold text-[10px] uppercase text-silver tracking-widest mb-4">
-          Trusted Partners
-        </h4>
+    </motion.div>
+  </div>
+</section>
+
+{/* Stats + Technology Panel */}
+<section id="tech-summary" className="pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-lightGray">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-5 lg:gap-6">
+    <div className="space-y-5 min-w-0">
+      {/* Stats Card */}
+      <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10 min-w-0 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+          {t.hero.stats.slice(0, 3).map((stat, idx) => (
+            <div
+              key={idx}
+              className="min-w-0 text-center flex flex-col items-center justify-center px-4 py-5 sm:py-2 border-b sm:border-b-0 sm:border-r border-border-gray last:border-0"
+            >
+              <div
+                className={`font-bold text-primary leading-none mb-3 whitespace-nowrap ${
+                  idx === 2
+                    ? "text-4xl md:text-5xl lg:text-5xl"
+                    : "text-5xl md:text-6xl lg:text-6xl"
+                }`}
+              >
+                {stat.value}
+              </div>
+
+              <div className="min-h-[34px] flex items-center justify-center text-xs sm:text-[11px] md:text-xs font-bold uppercase text-dark tracking-widest leading-relaxed text-center">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Partners Card */}
+      <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10 overflow-hidden">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-1.5 h-7 bg-primary" />
+          <div>
+            <h3 className="font-bold uppercase text-sm tracking-widest text-dark">
+              Trusted Partners
+            </h3>
+          </div>
+        </div>
 
         <div className="partners-marquee">
           <div className="partners-track">
@@ -377,39 +417,10 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
           </div>
         </div>
       </div>
-    </motion.div>
-  </div>
-</section>
-
-{/* Stats + Technology Panel */}
-<section id="tech-summary" className="pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-lightGray">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_420px] gap-5 lg:gap-6">
-    <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10 min-w-0 overflow-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-0">
-        {t.hero.stats.slice(0, 3).map((stat, idx) => (
-          <div
-            key={idx}
-            className="text-center min-w-0 border-b sm:border-b-0 sm:border-r border-border-gray last:border-0 pb-5 sm:pb-0 sm:px-4 first:sm:pl-0 last:sm:pr-0"
-          >
-            <div
-              className={`font-bold text-primary leading-none mb-3 break-words ${
-                idx === 2
-                  ? "text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl"
-                  : "text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl"
-              }`}
-            >
-              {stat.value}
-            </div>
-
-            <div className="text-xs sm:text-[11px] md:text-xs font-bold uppercase text-dark tracking-widest leading-relaxed">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
 
-    <div className="terminal-box rounded-3xl min-h-[220px] p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-hidden min-w-0">
+    {/* Terminal Card */}
+    <div className="terminal-box rounded-3xl min-h-[260px] p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-hidden min-w-0">
       <div className="text-sm sm:text-base leading-relaxed break-words">
         <div>{"> INITIALIZING AVALUE_INTEL"}</div>
         <div>{"> SEARCHING ASSET_ID: 992-B"}</div>

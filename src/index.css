@@ -13,6 +13,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   html,
   body,
   #root {
@@ -69,18 +73,18 @@
   @apply border border-white/20 hover:bg-white/10 text-white px-6 py-2.5 rounded font-bold text-sm uppercase tracking-wider transition-all;
 }
 
-/* Partner logo marquee - responsive and safe for mobile */
+/* Partner logo marquee - larger desktop logos, responsive mobile */
 .partners-marquee {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 .partners-track {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   width: max-content;
   animation: partnersScroll 24s linear infinite;
   will-change: transform;
@@ -88,13 +92,13 @@
 
 .partner-logo-item {
   flex: 0 0 auto;
-  min-width: 92px;
-  height: 42px;
+  min-width: 150px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 8px;
-  opacity: 0.7;
+  padding: 6px 14px;
+  opacity: 0.82;
   filter: grayscale(100%);
   transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
 }
@@ -106,8 +110,8 @@
 }
 
 .partner-logo-img {
-  max-height: 30px;
-  max-width: 88px;
+  max-height: 52px;
+  max-width: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -135,20 +139,24 @@
     height: 320px;
   }
 
+  .partners-marquee {
+    padding: 8px 0;
+  }
+
   .partners-track {
-    gap: 18px;
+    gap: 22px;
     animation-duration: 20s;
   }
 
   .partner-logo-item {
-    min-width: 82px;
-    height: 38px;
-    padding: 3px 6px;
+    min-width: 115px;
+    height: 56px;
+    padding: 4px 8px;
   }
 
   .partner-logo-img {
-    max-height: 26px;
-    max-width: 78px;
+    max-height: 40px;
+    max-width: 108px;
   }
 }
 
