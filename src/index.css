@@ -13,8 +13,27 @@
 }
 
 @layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply font-sans text-dark bg-light-gray antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
   }
 }
 
@@ -50,32 +69,34 @@
   @apply border border-white/20 hover:bg-white/10 text-white px-6 py-2.5 rounded font-bold text-sm uppercase tracking-wider transition-all;
 }
 
+/* Partner logo marquee - responsive and safe for mobile */
 .partners-marquee {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  padding: 6px 0;
+  overflow: hidden;
+  padding: 8px 0;
 }
 
 .partners-track {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   width: max-content;
-  animation: partnersScroll 22s linear infinite;
+  animation: partnersScroll 24s linear infinite;
+  will-change: transform;
 }
 
 .partner-logo-item {
   flex: 0 0 auto;
-  min-width: 140px;
-  height: 50px;
+  min-width: 92px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 10px;
-  opacity: 0.75;
+  padding: 4px 8px;
+  opacity: 0.7;
   filter: grayscale(100%);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
 }
 
 .partner-logo-item:hover {
@@ -85,8 +106,8 @@
 }
 
 .partner-logo-img {
-  max-height: 34px;
-  max-width: 120px;
+  max-height: 30px;
+  max-width: 88px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -100,7 +121,43 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-glow::after {
+    right: -160px;
+    top: -160px;
+    width: 320px;
+    height: 320px;
+  }
+
+  .partners-track {
+    gap: 18px;
+    animation-duration: 20s;
+  }
+
+  .partner-logo-item {
+    min-width: 82px;
+    height: 38px;
+    padding: 3px 6px;
+  }
+
+  .partner-logo-img {
+    max-height: 26px;
+    max-width: 78px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-track {
+    animation: none;
+  }
+
+  * {
+    scroll-behavior: auto !important;
   }
 }

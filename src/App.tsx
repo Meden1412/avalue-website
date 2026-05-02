@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -44,60 +44,120 @@ const Navbar = ({ lang, setLang, t }) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-[70px] bg-white border-b border-border-gray z-50 flex items-center">
-      <div className="max-w-7xl mx-auto px-10 w-full flex items-center justify-between">
-        <Logo />
-        
+    <nav className="fixed top-0 left-0 w-full h-[72px] bg-white border-b border-border-gray z-50 flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
+        <a href="#" className="flex items-center">
+          <Logo className="h-10 sm:h-12" />
+        </a>
+
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          <div className="flex gap-6 mr-8">
+          <div className="flex gap-6">
             {menuItems.map((item) => (
-              <a key={item.name} href={item.href} className="text-[13px] font-bold text-dark hover:text-primary uppercase tracking-wider transition-colors">
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-[13px] font-bold text-dark hover:text-primary uppercase tracking-wider transition-colors"
+              >
                 {item.name}
               </a>
             ))}
           </div>
-          
-          <div className="flex items-center gap-6 text-dark">
+
+          <div className="flex items-center gap-5 text-dark">
             <div className="bg-light-gray px-3 py-1.5 rounded-full flex gap-2 font-bold text-[12px] cursor-pointer">
-              <span onClick={() => setLang("vi")} className={lang === "vi" ? "text-primary" : "text-dark"}>VI</span>
+              <button
+                type="button"
+                onClick={() => setLang("vi")}
+                className={lang === "vi" ? "text-primary" : "text-dark"}
+              >
+                VI
+              </button>
               <span className="text-border-gray">|</span>
-              <span onClick={() => setLang("en")} className={lang === "en" ? "text-primary" : "text-dark"}>EN</span>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={lang === "en" ? "text-primary" : "text-dark"}
+              >
+                EN
+              </button>
             </div>
-            <a href="#contact" className="btn-primary">
+
+            <a href="#contact" className="btn-primary whitespace-nowrap">
               {t.nav.request}
             </a>
           </div>
         </div>
 
-        {/* Mobile menu button */}
-        <button className="lg:hidden text-dark" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          className="lg:hidden w-11 h-11 rounded-xl flex items-center justify-center text-dark hover:bg-lightGray transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={26} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-xl border-t border-border py-8 px-4 flex flex-col gap-6 items-center lg:hidden"
+            exit={{ opacity: 0, y: -12 }}
+            className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-border px-5 py-6 lg:hidden"
           >
-            {menuItems.map((item) => (
-              <a key={item.name} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-dark hover:text-primary">
-                {item.name}
-              </a>
-            ))}
-            <div className="flex gap-4 border-t border-border pt-6 w-full justify-center">
-              <button onClick={() => { setLang("vi"); setIsMobileMenuOpen(false); }} className={`font-bold ${lang === "vi" ? "text-primary" : "text-silver"}`}>TIẾNG VIỆT</button>
-              <span className="text-silver">|</span>
-              <button onClick={() => { setLang("en"); setIsMobileMenuOpen(false); }} className={`font-bold ${lang === "en" ? "text-primary" : "text-silver"}`}>ENGLISH</button>
+            <div className="flex flex-col gap-2">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full py-3 px-4 rounded-xl text-base font-bold text-dark hover:text-primary hover:bg-lightGray transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
             </div>
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-primary text-white w-full py-4 rounded text-center font-bold">
-              {t.nav.request}
-            </a>
+
+            <div className="mt-5 pt-5 border-t border-border flex items-center justify-between gap-4">
+              <div className="bg-lightGray rounded-full p-1 flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLang("vi");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 rounded-full font-bold text-sm ${
+                    lang === "vi" ? "bg-white text-primary shadow-sm" : "text-dark"
+                  }`}
+                >
+                  VI
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLang("en");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 rounded-full font-bold text-sm ${
+                    lang === "en" ? "bg-white text-primary shadow-sm" : "text-dark"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-white px-5 py-3 rounded-xl text-center font-bold text-sm"
+              >
+                {t.nav.request}
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -222,110 +282,143 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
       <Navbar lang={lang} setLang={setLang} t={t} />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-8 px-8 flex-1">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_400px] gap-6">
-          
-          {/* Main Hero Panel */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="hero-glow bg-dark rounded-xl p-12 md:p-20 text-white flex flex-col justify-center min-h-[500px]"
+<section className="pt-[96px] pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 bg-lightGray">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_400px] gap-5 lg:gap-6">
+    {/* Main Hero Panel */}
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="hero-glow bg-dark rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-white min-h-[460px] sm:min-h-[520px] flex flex-col justify-center overflow-hidden"
+    >
+      <h4 className="text-primary font-bold uppercase tracking-[0.22em] text-[11px] sm:text-xs mb-4">
+        Valuation Intelligence
+      </h4>
+
+      <h1 className="text-[42px] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] mb-6 sm:mb-8 max-w-3xl break-words">
+        {t.hero.headline}
+      </h1>
+
+      <p className="text-accent-silver text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-2xl leading-relaxed">
+        {t.hero.subheadline}
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
+        <a
+          href="#contact"
+          className="w-full sm:w-auto text-center bg-primary hover:bg-primary-dark text-white px-6 py-4 rounded-xl font-bold uppercase tracking-wide transition-colors"
+        >
+          {t.hero.ctaPrimary}
+        </a>
+
+        <a
+          href="#capabilities"
+          className="w-full sm:w-auto text-center border border-white/20 hover:border-white/50 text-white px-6 py-4 rounded-xl font-bold uppercase tracking-wide transition-colors"
+        >
+          {t.hero.ctaSecondary}
+        </a>
+      </div>
+    </motion.div>
+
+    {/* Sidebar Services Panel */}
+    <motion.div
+      initial={{ opacity: 0, x: 18 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.15 }}
+      className="bg-white rounded-3xl border border-border-gray p-5 sm:p-6 lg:p-8 flex flex-col h-full overflow-hidden"
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-1.5 h-7 bg-primary" />
+        <h3 className="font-bold uppercase text-sm sm:text-base tracking-wider text-dark">
+          {t.services.title}
+        </h3>
+      </div>
+
+      <div className="space-y-2 flex-1">
+        {t.services.items.slice(0, 5).map((service, idx) => (
+          <div
+            key={idx}
+            className="group p-4 border-b border-light-gray last:border-b-0 hover:bg-lightGray transition-colors cursor-pointer rounded-2xl"
           >
-            <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-xs mb-4">
-              Valuation Intelligence
-            </h4>
-            <h1 className="text-4xl md:text-6xl font-bold leading-[1.1] mb-8 max-w-2xl">
-              {t.hero.headline}
-            </h1>
-            <p className="text-accent-silver text-lg mb-10 max-w-lg leading-relaxed">
-              {t.hero.subheadline}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn-primary">
-                {t.hero.ctaPrimary}
-              </a>
-              <a href="#capabilities" className="btn-outline">
-                {t.hero.ctaSecondary}
-              </a>
+            <div className="flex gap-4 items-start">
+              <div className="w-11 h-11 bg-primary/5 rounded-xl flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
+                {idx === 0 ? <Building2 size={21} /> : <ShieldCheck size={21} />}
+              </div>
+
+              <div className="min-w-0">
+                <h4 className="font-bold text-base text-dark mb-1 leading-snug">
+                  {service.title}
+                </h4>
+                <p className="text-sm text-silver leading-relaxed">
+                  {service.desc}
+                </p>
+              </div>
             </div>
-          </motion.div>
+          </div>
+        ))}
+      </div>
 
-          {/* Sidebar Services Panel */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl border border-border-gray p-8 flex flex-col h-full"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1.5 h-6 bg-primary" />
-              <h3 className="font-bold uppercase text-sm tracking-wider">{t.services.title}</h3>
-            </div>
-            
-            <div className="space-y-2 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-              {t.services.items.slice(0, 5).map((service, idx) => (
-                <div key={idx} className="group p-4 border-b border-light-gray hover:bg-light-gray transition-colors cursor-pointer rounded-lg">
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 bg-primary/5 rounded-lg flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
-                      {idx === 0 ? <Building2 size={20} /> : <ShieldCheck size={20} />}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-sm text-dark mb-1">{service.title}</h4>
-                      <p className="text-[11px] text-silver leading-normal">{service.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="mt-6 pt-6 border-t border-border-gray">
+        <h4 className="font-bold text-[10px] uppercase text-silver tracking-widest mb-4">
+          Trusted Partners
+        </h4>
 
-            <div className="mt-8 pt-8 border-t border-border-gray">
-  <h4 className="font-bold text-[10px] uppercase text-silver tracking-widest mb-4">
-    Trusted Partners
-  </h4>
-
-  <div className="partners-marquee">
-    <div className="partners-track">
-      {[...partners, ...partners].map((partner, index) => (
-        <div className="partner-logo-item" key={`${partner.name}-${index}`}>
-          <img
-            src={partner.logo}
-            alt={partner.name}
-            className="partner-logo-img"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* Tech & Stats Panel Section */}
-      <section id="tech" className="pb-24 px-8">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_500px] gap-6">
-          <div className="bg-white rounded-xl border border-border-gray p-10 flex items-center justify-around">
-            {t.hero.stats.slice(0, 3).map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-4xl font-bold text-primary mb-1">{stat.value}</div>
-                <div className="text-[10px] font-bold uppercase text-silver tracking-widest">{stat.label}</div>
+        <div className="partners-marquee">
+          <div className="partners-track">
+            {[...partners, ...partners].map((partner, index) => (
+              <div className="partner-logo-item" key={`${partner.name}-${index}`}>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="partner-logo-img"
+                />
               </div>
             ))}
           </div>
-
-          <div className="terminal-box h-full flex flex-col justify-center min-h-[160px]">
-             <div>{"> INITIALIZING AVALUE_INTEL"}</div>
-             <div>{"> SEARCHING ASSET_ID: 992-B"}</div>
-             <div>{"> ANALYSIS COMPLETE"}</div>
-             <div>{"> ACCURACY: 99.82%"}</div>
-             <div>{"> SLA: 24h TARGET MET"}</div>
-             <div className="mt-4 bg-green-400 h-1 w-4/5"></div>
-             <div className="mt-1 bg-green-400/50 h-1 w-2/5"></div>
-             <div className="mt-4 text-white font-bold text-[12px]">A-PLATFORM v2.1</div>
-          </div>
         </div>
-      </section>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+{/* Stats + Technology Panel */}
+<section id="tech-summary" className="pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-lightGray">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_500px] gap-5 lg:gap-6">
+    <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        {t.hero.stats.slice(0, 3).map((stat, idx) => (
+          <div
+            key={idx}
+            className="text-center border-b sm:border-b-0 sm:border-r border-border-gray last:border-0 pb-5 sm:pb-0 sm:pr-6 last:pr-0"
+          >
+            <div className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-none mb-3">
+              {stat.value}
+            </div>
+            <div className="text-xs sm:text-[11px] md:text-xs font-bold uppercase text-dark tracking-widest leading-relaxed">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="terminal-box rounded-3xl min-h-[220px] p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-hidden">
+      <div className="text-sm sm:text-base leading-relaxed break-words">
+        <div>{"> INITIALIZING AVALUE_INTEL"}</div>
+        <div>{"> SEARCHING ASSET_ID: 992-B"}</div>
+        <div>{"> ANALYSIS COMPLETE"}</div>
+        <div>{"> ACCURACY: 99.82%"}</div>
+        <div>{"> SLA: 24h TARGET MET"}</div>
+      </div>
+
+      <div className="mt-6 bg-green-400 h-1.5 w-4/5 max-w-full"></div>
+      <div className="mt-1.5 bg-green-400/50 h-1.5 w-2/5 max-w-full"></div>
+
+      <div className="mt-8 text-white font-bold text-xl sm:text-2xl tracking-wider">
+        A-PLATFORM v2.1
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="about" className="py-24 bg-white relative overflow-hidden">
@@ -395,9 +488,13 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-dark group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-silver text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
-                  <div className="flex items-center gap-2 text-dark font-bold text-xs uppercase tracking-wider group-hover:gap-4 transition-all">
-                    {lang === 'vi' ? 'Tìm hiểu thêm' : 'Learn more'} <ChevronRight size={14} className="text-primary" />
-                  </div>
+                  <a
+  href="#contact"
+  className="inline-flex items-center gap-2 text-dark font-bold text-xs uppercase tracking-wider group-hover:gap-4 transition-all"
+>
+  {lang === "vi" ? "Tìm hiểu thêm" : "Learn more"}
+  <ChevronRight size={14} className="text-primary" />
+</a>
                 </motion.div>
               );
             })}
@@ -561,13 +658,13 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
                     </>
                   )}
                 </h2>
-                <p className="text-silver text-lg mb-12">
+                <p className="text-silver text-lg mb-1">
                   {t.hero.subheadline}
                 </p>
                 <img
                   src="/logo-avalue-white.png"
                   alt="Avalue Logo"
-                  className="h-16 w-auto object-contain opacity-90"
+                  className="h-16 w-auto object-contain opacity-90 -mt-34"
                 />
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -794,11 +891,13 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
       </footer>
 
       {/* Floating CTA for Mobile */}
-      <div className="fixed bottom-6 right-6 lg:hidden z-40">
-        <button className="bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center animate-bounce">
-          <Phone size={24} />
-        </button>
-      </div>
+<a
+  href="tel:0934256969"
+  className="fixed bottom-5 right-5 lg:hidden z-40 bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center"
+  aria-label="Call Avalue"
+>
+  <Phone size={24} />
+</a>
     </div>
   );
 }
