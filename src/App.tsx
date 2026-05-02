@@ -664,7 +664,7 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
                 <img
                   src="/logo-avalue-white.png"
                   alt="Avalue Logo"
-                  className="h-16 w-auto object-contain opacity-90 -mt-34"
+                  className="h-16 w-auto object-contain opacity-90 -mt-30"
                 />
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
