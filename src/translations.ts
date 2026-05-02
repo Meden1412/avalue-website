@@ -156,9 +156,9 @@ export const translations = {
       ctaPrimary: "Request a Valuation",
       ctaSecondary: "View Capabilities",
       stats: [
-        { label: "Years Experience", value: "10+" },
-        { label: "Provinces", value: "63" },
-        { label: "Process Model", value: "Hybrid" },
+        { label: "Years Experience", value: "18+" },
+        { label: "Provinces", value: "34" },
+        { label: "Process Model", value: "AI+Expert" },
         { label: "Reliability Index", value: "99%" },
       ]
     },
@@ -287,7 +287,7 @@ export const translations = {
       points: [
         "Absolute accuracy and independence.",
         "Deep understanding of banking risk appetite.",
-        "Network covering all 63 provinces.",
+        "Network covering all 34 provinces.",
         "Comprehensive digital transformation.",
         "Commitment to client information security.",
         "Optimized costs and turnaround time."
