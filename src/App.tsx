@@ -383,17 +383,24 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
 
 {/* Stats + Technology Panel */}
 <section id="tech-summary" className="pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-lightGray">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_500px] gap-5 lg:gap-6">
-    <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_420px] gap-5 lg:gap-6">
+    <div className="bg-white rounded-3xl border border-border-gray p-6 sm:p-8 lg:p-10 min-w-0 overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-0">
         {t.hero.stats.slice(0, 3).map((stat, idx) => (
           <div
             key={idx}
-            className="text-center border-b sm:border-b-0 sm:border-r border-border-gray last:border-0 pb-5 sm:pb-0 sm:pr-6 last:pr-0"
+            className="text-center min-w-0 border-b sm:border-b-0 sm:border-r border-border-gray last:border-0 pb-5 sm:pb-0 sm:px-4 first:sm:pl-0 last:sm:pr-0"
           >
-            <div className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-none mb-3">
+            <div
+              className={`font-bold text-primary leading-none mb-3 break-words ${
+                idx === 2
+                  ? "text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl"
+                  : "text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl"
+              }`}
+            >
               {stat.value}
             </div>
+
             <div className="text-xs sm:text-[11px] md:text-xs font-bold uppercase text-dark tracking-widest leading-relaxed">
               {stat.label}
             </div>
@@ -402,7 +409,7 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
       </div>
     </div>
 
-    <div className="terminal-box rounded-3xl min-h-[220px] p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-hidden">
+    <div className="terminal-box rounded-3xl min-h-[220px] p-6 sm:p-8 lg:p-10 flex flex-col justify-center overflow-hidden min-w-0">
       <div className="text-sm sm:text-base leading-relaxed break-words">
         <div>{"> INITIALIZING AVALUE_INTEL"}</div>
         <div>{"> SEARCHING ASSET_ID: 992-B"}</div>
