@@ -472,8 +472,9 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://scontent.fsgn2-11.fna.fbcdn.net/v/t39.30808-6/593717837_1154537293464158_6867897628852378406_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Kmw03cJExJ0Q7kNvwEAm_aR&_nc_oc=AdoZ9n1fxwqwuIZhtqqk4P0-bwSbe9K6QckXBpaJzZ1wnwQIEWZyBqy7qnw3YFbGeCY&_nc_zt=23&_nc_ht=scontent.fsgn2-11.fna&_nc_gid=JNVjYgTiLH3nnoNQjhQfEw&_nc_ss=7b2a8&oh=00_Af6b9Yto_LaxGqCaOn_h2bp6D2V_KKgXZUZa5nDhUKzNyQ&oe=69FA9C77" 
+                  src="/images/about-avalue.jpg"
                   alt="Avalue Professionalism" 
+                  loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
