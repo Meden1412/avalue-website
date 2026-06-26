@@ -1,4 +1,5 @@
 // @ts-nocheck
+import PrivacyPolicy from "./PrivacyPolicy";
 import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -191,6 +192,8 @@ const SectionHeading = ({ title, subtitle, centered = false }) => (
 // --- Main App ---
 
 export default function App() {
+  const isPrivacyPolicyPage = window.location.pathname === "/privacy-policy";
+
   const [lang, setLang] = useState("vi");
   const t = translations[lang];
   const [formData, setFormData] = useState({
@@ -274,12 +277,17 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
     ? "Có lỗi khi gửi yêu cầu. Vui lòng thử lại sau."
     : "An error occurred while sending your request. Please try again later."
 );
-  } finally {
+    } finally {
     setIsSubmitting(false);
   }
 };
-  return (
-    <div className="overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+
+if (isPrivacyPolicyPage) {
+  return <PrivacyPolicy />;
+}
+
+return (
+  <div className="overflow-x-hidden selection:bg-primary/20 selection:text-primary">
       <Navbar lang={lang} setLang={setLang} t={t} />
 
       {/* Hero Section */}
@@ -1121,13 +1129,12 @@ const handleSubmitContact = async (e: FormEvent<HTMLFormElement>) => {
     <div>&copy; 2026 Avalue Valuation Intelligence. All Rights Reserved. DESIGN BY KESO</div>
 
     <div className="flex gap-6">
-      <button
-        type="button"
-        onClick={() => setLegalModal("privacy")}
-        className="hover:text-primary transition-colors"
-      >
-        Privacy Policy
-      </button>
+      <a
+  href="/privacy-policy"
+  className="hover:text-primary transition-colors"
+>
+  Privacy Policy
+</a>
 
       <button
         type="button"
