@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { translations } from "./translations";
 import { COLORS } from "./constants";
-
+import EcardPage from "./EcardPage";
 // --- Components ---
 
 const Logo = ({ className = "" }) => (
@@ -192,6 +192,21 @@ const SectionHeading = ({ title, subtitle, centered = false }) => (
 // --- Main App ---
 
 export default function App() {
+  const path = window.location.pathname;
+
+  const reservedPaths = [
+    "/",
+    "/privacy-policy",
+    "/terms",
+    "/contact",
+    "/about"
+  ];
+
+  const isEcardPage = !reservedPaths.includes(path) && path.length > 1;
+
+  if (isEcardPage) {
+  return <EcardPage />;
+}
   const isPrivacyPolicyPage = window.location.pathname === "/privacy-policy";
 
   const [lang, setLang] = useState("vi");

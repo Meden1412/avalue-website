@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "hoangthanduy",
+    "name": "HOÀNG THÂN DUY",
+    "position": "COO",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0903082978",
+    "email": "hoangduy1412@gmail.com",
+    "zalo": "0903082978",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/hoangthanduy.jpg",
+    "cover": "/covers/avalue-cover.png",
+    "website": "https://avalue.vn",
+    "bio": "Giám đốc vận hành Avalue Việt Nam.",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  }
+]
