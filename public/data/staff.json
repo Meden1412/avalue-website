@@ -20,5 +20,115 @@
       "Tư vấn dữ liệu giá và bản đồ tài sản"
     ],
     "active": true
-  }
+  },
+  {
+    "slug": "hatuananh",
+    "name": "HÀ TUẤN ANH",
+    "position": "TRƯỞNG VPĐD",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0933399889",
+    "email": "tuananh@avalue.vn",
+    "zalo": "0933399889",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/hatuananh.jpg",
+    "cover": "/covers/banneravalue.png",
+    "website": "https://avalue.vn",
+    "bio": "Trưởng VPĐD - Avalue Bình Dương",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  },
+  {
+    "slug": "minhduong",
+    "name": "HOÀNG MINH DƯƠNG",
+    "position": "GIÁM ĐỐC KINH DOANH",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0981379686",
+    "email": "minhduong@avalue.vn",
+    "zalo": "0981379686",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/minhduong.jpg",
+    "cover": "/covers/banneravalue.png",
+    "website": "https://avalue.vn",
+    "bio": "Giám đốc kinh doanh; Phó VPĐD - Avalue Bình Dương",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  },
+  {
+    "slug": "tuananhbd",
+    "name": "HOÀNG TUẤN ANH",
+    "position": "PHÓ GIÁM ĐỐC KINH DOANH",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0968141911",
+    "email": "tuan8022@avalue.vn",
+    "zalo": "0968141911",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/tuananhbd.jpg",
+    "cover": "/covers/banneravalue.png",
+    "website": "https://avalue.vn",
+    "bio": "Phó Giám đốc kinh doanh - Avalue Bình Dương",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  },
+  {
+    "slug": "hoangminh",
+    "name": "NGUYỄN HOÀNG MINH",
+    "position": "PHÓ GIÁM ĐỐC KINH DOANH",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0946191252",
+    "email": "hoangminh@avalue.vn",
+    "zalo": "0946191252",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/hoangminh.jpg",
+    "cover": "/covers/banneravalue.png",
+    "website": "https://avalue.vn",
+    "bio": "Phó Giám đốc kinh doanh - Avalue Bình Dương",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  },
+  {
+    "slug": "quoctrung",
+    "name": "ĐẶNG HOÀNG QUỐC TRUNG",
+    "position": "CHUYÊN VIÊN THẨM ĐỊNH",
+    "company": "Công ty Cổ phần Thẩm định giá Avalue Việt Nam",
+    "phone": "0783478569",
+    "email": "trungdhq@avalue.vn",
+    "zalo": "0783478569",
+    "address": "Hồ Chí Minh",
+    "avatar": "/staff/quoctrung.jpg",
+    "cover": "/covers/banneravalue.png",
+    "website": "https://avalue.vn",
+    "bio": "Chuyên viên thẩm định giá - Avalue CN Sài Gòn",
+    "services": [
+      "Thẩm định giá bất động sản",
+      "Thẩm định giá máy móc thiết bị",
+      "Thẩm định giá phương tiện vận tải",
+      "Thẩm định giá doanh nghiệp",
+      "Tư vấn dữ liệu giá và bản đồ tài sản"
+    ],
+    "active": true
+  },
 ]
