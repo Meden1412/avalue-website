@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/NAN",
+      "destination": "https://script.google.com/macros/s/AKfycbzJksBkUTyoqAKktITVT8i4oFoZu8xl-ZZKotu3p_3EZDGz3Gpg8CqjwDNXSybmDPwS0g/exec",
+      "permanent": false
+    },
+    {
+      "source": "/nan",
+      "destination": "https://script.google.com/macros/s/AKfycbzJksBkUTyoqAKktITVT8i4oFoZu8xl-ZZKotu3p_3EZDGz3Gpg8CqjwDNXSybmDPwS0g/exec",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
